@@ -4,7 +4,8 @@ import 'package:dashboard_route_app/dbHelper/db_constants.dart';
 import 'package:flutter/material.dart';
 import '../../../configs/themes/ui_parameters.dart';
 import './users_data.dart';
-import 'table_filter_button.dart';
+import 'table_operation_button.dart';
+import 'user_table_view.dart';
 import 'user_type_row.dart';
 
 class Body extends StatelessWidget {
@@ -13,7 +14,7 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: UsersData.usersType.length,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -26,129 +27,35 @@ class Body extends StatelessWidget {
             height: MediaQuery.of(context).size.width * 0.8,
             child: TabBarView(
               children: [
+                // List.generate(
+                //   3,
+                //   (index) => UserTableView(
+                //     selectedIndex: index,
+                //     callOnAdd: () {},
+                //     callOnImport: () {},
+                //     callOnExport: () {},
+                //   ),
+                // ) as Widget
                 //?Members
-                Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            //display user type
-                            Text(
-                              UsersData.usersType[0],
-                              style: const TextStyle(
-                                  fontSize: 24, fontWeight: FontWeight.bold),
-                            ),
-                            //Three BUttons
-                            defaultWidthSpace, // 16 pixel sizebox width
-                            const TableFilterButton(),
-                            defaultWidthSpace, // 16 pixel sizebox width
-                            const TableFilterButton(),
-                            defaultWidthSpace, // 16 pixel sizebox width
-                            const TableFilterButton(),
-                          ],
-                        ),
-                        const TableFilterButton(),
-                      ],
-                    ),
-                    // Table
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: MediaQuery.of(context).size.width * 0.01),
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: const Text(
-                        "Hello",
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    )
-                  ],
+                UserTableView(
+                  selectedIndex: 0,
+                  callOnAdd: () {},
+                  callOnImport: () {},
+                  callOnExport: () {},
                 ),
-                // //!Drivers
-                Column(
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            //display user type
-                            Text(
-                              UsersData.usersType[0],
-                              style: const TextStyle(
-                                  fontSize: 24, fontWeight: FontWeight.bold),
-                            ),
-                            //Three BUttons
-                            const TableFilterButton(),
-                            const TableFilterButton(),
-                            const TableFilterButton(),
-                          ],
-                        ),
-                        const TableFilterButton(),
-                      ],
-                    ),
-                    // Table
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: MediaQuery.of(context).size.width * 0.01),
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: const Text(
-                        "Hello",
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    )
-                  ],
+                //!Drivers
+                UserTableView(
+                  selectedIndex: 1,
+                  callOnAdd: () {},
+                  callOnImport: () {},
+                  callOnExport: () {},
                 ),
-                // //?Admins
-                Column(
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            //display user type
-                            Text(
-                              UsersData.usersType[0],
-                              style: const TextStyle(
-                                  fontSize: 24, fontWeight: FontWeight.bold),
-                            ),
-                            //Three BUttons
-                            const TableFilterButton(),
-                            const TableFilterButton(),
-                            const TableFilterButton(),
-                          ],
-                        ),
-                        const TableFilterButton(),
-                      ],
-                    ),
-                    // Table
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: MediaQuery.of(context).size.width * 0.01),
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: const Text(
-                        "Hello",
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    )
-                  ],
+                //Admins
+                UserTableView(
+                  selectedIndex: 2,
+                  callOnAdd: () {},
+                  callOnImport: () {},
+                  callOnExport: () {},
                 ),
               ],
             ),
