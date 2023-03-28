@@ -33,7 +33,6 @@ class Body extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             //display user type
                             Text(
@@ -41,19 +40,19 @@ class Body extends StatelessWidget {
                               style: const TextStyle(
                                   fontSize: 24, fontWeight: FontWeight.bold),
                             ),
-                            const SizedBox(
-                              height: 50,
-                              child: DefaultTabController(
-                                length: 3,
-                                child: OperationsTabBar(selectedIndex: 0),
-                              ),
-                            ),
+                            //Three BUttons
+                            defaultWidthSpace, // 16 pixel sizebox width
+                            const TableFilterButton(),
+                            defaultWidthSpace, // 16 pixel sizebox width
+                            const TableFilterButton(),
+                            defaultWidthSpace, // 16 pixel sizebox width
+                            const TableFilterButton(),
                           ],
                         ),
                         const TableFilterButton(),
                       ],
                     ),
-                    //Table
+                    // Table
                     Container(
                       padding: EdgeInsets.symmetric(
                           horizontal: MediaQuery.of(context).size.width * 0.01),
@@ -69,104 +68,73 @@ class Body extends StatelessWidget {
                     )
                   ],
                 ),
-                //!Drivers
-                Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            //display user type
-                            Text(
-                              UsersData.usersType[0],
-                              style: const TextStyle(
-                                  fontSize: 24, fontWeight: FontWeight.bold),
-                            ),
-                            const SizedBox(
-                              height: 50,
-                              child: DefaultTabController(
-                                length: 3,
-                                child: OperationsTabBar(selectedIndex: 0),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const TableFilterButton(),
-                      ],
-                    ),
-                    //Table
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: MediaQuery.of(context).size.width * 0.01),
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: const Text(
-                        "Hello",
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    )
-                  ],
-                ),
-                //?Admins
+                // //!Drivers
                 Column(
                   children: [
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          UsersData.usersType[0],
-                          style: const TextStyle(
-                              fontSize: 24, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.7,
-                          height: 50,
-                          child: DefaultTabController(
-                            length: 3,
-                            child: Column(
-                              children: [
-                                //middle Row
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    const OperationsTabBar(selectedIndex: 2),
-                                    // Filter Button
-                                    MaterialButton(
-                                      color: Colors.white,
-                                      onPressed: () {},
-                                      child: const Text(
-                                        "< Filter",
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                //operation Tabs
-                                Expanded(
-                                  child: TabBarView(
-                                    children: <Widget>[
-                                      Container(),
-                                      Container(),
-                                      Container(),
-                                    ],
-                                  ),
-                                ),
-                              ],
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            //display user type
+                            Text(
+                              UsersData.usersType[0],
+                              style: const TextStyle(
+                                  fontSize: 24, fontWeight: FontWeight.bold),
                             ),
-                          ),
-                        )
+                            //Three BUttons
+                            const TableFilterButton(),
+                            const TableFilterButton(),
+                            const TableFilterButton(),
+                          ],
+                        ),
+                        const TableFilterButton(),
                       ],
                     ),
-                    //Table
+                    // Table
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: MediaQuery.of(context).size.width * 0.01),
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: const Text(
+                        "Hello",
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    )
+                  ],
+                ),
+                // //?Admins
+                Column(
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            //display user type
+                            Text(
+                              UsersData.usersType[0],
+                              style: const TextStyle(
+                                  fontSize: 24, fontWeight: FontWeight.bold),
+                            ),
+                            //Three BUttons
+                            const TableFilterButton(),
+                            const TableFilterButton(),
+                            const TableFilterButton(),
+                          ],
+                        ),
+                        const TableFilterButton(),
+                      ],
+                    ),
+                    // Table
                     Container(
                       padding: EdgeInsets.symmetric(
                           horizontal: MediaQuery.of(context).size.width * 0.01),
@@ -190,57 +158,3 @@ class Body extends StatelessWidget {
     );
   }
 }
-
-class OperationsTabBar extends StatelessWidget {
-  const OperationsTabBar({
-    super.key,
-    required this.selectedIndex,
-  });
-
-  final int selectedIndex;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ButtonsTabBar(
-          backgroundColor: Colors.red,
-          unselectedBackgroundColor: Colors.grey[300],
-          unselectedLabelStyle: const TextStyle(color: Colors.black),
-          labelStyle:
-              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          tabs: [
-            const Tab(
-              icon: Icon(Icons.add),
-              text: "Add New",
-            ),
-            Tab(
-              icon: const Icon(Icons.file_download),
-              text: "Import ${UsersData.usersType[selectedIndex]}",
-            ),
-            Tab(
-              icon: const Icon(Icons.file_upload),
-              text: "Export ${UsersData.usersType[selectedIndex]}(Excel)",
-            ),
-          ],
-        ),
-        Expanded(
-          child: TabBarView(
-            children: <Widget>[
-              Container(),
-              Container(),
-              Container(),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-
-
-
-
- // Filter Button
-                                    

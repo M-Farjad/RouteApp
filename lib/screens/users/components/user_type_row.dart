@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'users_data.dart';
@@ -22,23 +21,21 @@ class UsersType extends StatelessWidget {
             color: Colors.white,
             borderRadius: BorderRadius.circular(5),
           ),
-          child: Expanded(
-            child: TabBar(
-              unselectedLabelColor: Color(0xff8a9299),
-              labelColor: Colors.black,
-              labelStyle: TextStyle(fontWeight: FontWeight.bold),
-              tabs: [
-                Tab(
-                  text: UsersData.usersType[0],
-                ),
-                Tab(
-                  text: UsersData.usersType[1],
-                ),
-                Tab(
-                  text: UsersData.usersType[2],
-                ),
-              ],
-            ),
+          child: TabBar(
+            unselectedLabelColor: Color(0xff8a9299),
+            labelColor: Colors.black,
+            labelStyle: TextStyle(fontWeight: FontWeight.bold),
+            tabs: [
+              Tab(
+                text: UsersData.usersType[0],
+              ),
+              Tab(
+                text: UsersData.usersType[1],
+              ),
+              Tab(
+                text: UsersData.usersType[2],
+              ),
+            ],
           ),
         ),
         // TOtal Memebers + Blocked Users
