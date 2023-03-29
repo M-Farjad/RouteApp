@@ -11,11 +11,13 @@ class UserTableView extends StatelessWidget {
     required this.callOnAdd,
     required this.callOnImport,
     required this.callOnExport,
+    required this.userData,
   });
   final int selectedIndex;
   final VoidCallback? callOnAdd;
   final VoidCallback? callOnImport;
   final VoidCallback? callOnExport;
+  final List<Map<String, dynamic>> userData;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -51,7 +53,7 @@ class UserTableView extends StatelessWidget {
           ],
         ),
         // Table
-        UserTable(),
+        UserTable(userData: userData),
       ],
     );
   }

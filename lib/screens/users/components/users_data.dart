@@ -44,7 +44,7 @@ class UsersData {
   static List<Map<String, dynamic>> drivers = [
     {
       'id': 'd001',
-      'name': 'Muhammad Salman',
+      'name': 'Salman Naeem',
       'username': 'dsalman112215',
       'password': 'dsalman',
       'mobile': '+92 0123456789',
